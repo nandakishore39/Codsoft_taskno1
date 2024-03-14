@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #333;
+            font-family: "Retroyal", sans-serif;
+            color: #12b127;
+        }
+        .header{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 3%;
+            background-color: black;
+        }
+        .main{
+            color: #fff;
+            font-size: 25px;
+            font-weight: 400;
+            cursor: default;
+            text-decoration: none;
+        }
+        .navigation a{
+            color: #fff;
+            text-decoration: none;
+            padding: 2px 15px;
+            transition: color 0.3s;
+        }
+        .navigation a:hover{
+            color: peachpuff;
+        }
+        .whole{
+            display: flex;
+            justify-content: center;
+            padding: 50px 10%;
+            align-items: center;
+        }
+        .apart {
+            text-align: center;
+            padding: 0 20px;
+        }
+        .apart a {
+            margin-right: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #12b127;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover{
+            background-color: #0d7f0f;
+        }
+        img{
+            border-radius: 5%;
+            animation: float 3s ease-in-out infinite;
+            margin-right: 50px;
+        }
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+            50% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+        i{
+            border: 2px solid;
+            border-radius: 50%;
+            padding: 10px;
+            color: white;
+            transition: color 0.3s;
+            margin: 5px;
+        }
+        i:hover {
+            color: #000;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="main">NANDA</a>
+        <nav class="navigation">
+            <a href="portfolio.html" class="open">Home</a>
+            <a href="About me.html">About Me</a>
+            <a href="Nanda_Resume .pdf">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="whole">
+        <div>
+            <img src="me.jpg" alt="Photo of NANDA" height="350px">
+        </div>
+        <div class="apart">
+            <h3>Welcome! It's me</h3>
+            <h1>NANDA KISHORE YADAV.B</h1>
+            <h4>and I'm a Student</h4>
+            <a href="https://www.linkedin.com/in/nanda-kishore-yadav-533441259/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/nandakishore39"><i class="fab fa-github-alt"></i></a><br>
+            <button class="button" onclick="downloadResume()">Download Resume</button>
+        </div>
+    </div>
+    <script>
+        function downloadResume() {
+            var htmlContent = document.documentElement.outerHTML;
+            var blob = new Blob([htmlContent], { type: 'text/html' });
+            var a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'Nanda_Resume.pdf';
+            a.click();
+            window.URL.revokeObjectURL(a.href);
+        }
+    </script>
+</body>
+</html>
