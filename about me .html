@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            background-color: #333;
+            font-family: "Retroyal", sans-serif;
+            color: #12b127;
+            margin: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 3%;
+            background-color: black;
+        }
+        .main {
+            color: white;
+            font-size: 25px;
+            font-weight: 400;
+            cursor: default;
+            text-decoration: none;
+        }
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            padding: 2px 15px;
+            transition: color 0.3s;
+        }
+        .navigation a:hover {
+            color: peachpuff;
+        }
+        .me {
+            color: rgb(79, 196, 79);
+            padding: 125px 10%;
+            display: flex;
+            align-items: center;
+        }
+        .me-content {
+            flex: 1;
+            margin-right: 10px;
+        }
+        img {
+            border-radius: 5%;
+            max-width: 100%;
+            height: auto;
+        }
+        .descr {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            color: lightcoral;
+            margin-top: 20px;
+        }
+        .descr p {
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .descr p.activelink {
+            color: peachpuff;
+        }
+        .mate {
+            display: none;
+            color: white;
+        }
+        .mate.activetab {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="main">JVS</a>
+        <nav class="navigation">
+            <a href="portfolio.html" class="open">Home</a>
+            <a href="about me.html">About Me</a>
+            <a href="E:\projects\Club and html\Resume_Shankar.pdf" download="YourResume.pdf">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="me">
+        <div class="me-content">
+            <h2>Introduction of me</h2>
+            <p>Hi, I am B.Nanda kishore yadav born and brought up at Kurnool.<br>
+                My current resident present now is Amaravathi. <br>
+                I am a 2nd year student in B.Tech CSE course from SRM University.<br>
+                I have skills that are mentioned in the resume.
+                which is mentioned to the right of About me.
+            </p>
+            <div class="descr">
+                <p class="descr activelink" onclick="opentab('skills')">Skills </p>
+                <p class="descr" onclick="opentab('experience')">Experience </p>
+                <p class="descr" onclick="opentab('education')">Education </p>
+            </div>
+            <div id="skills" class="mate activetab">
+                <ol>
+                    <b><li>HTML, CSS, Javascript</li>
+                    <li>C, C++</li>
+                    <li>DataStructures using C</li>
+                    <li>SQL</li></b>
+                </ol>
+            </div>
+            <div id="experience" class="mate">
+                <b><ul><li>Present in codsoft as an intern.</li></ul></b>
+            </div>
+            <div id="education" class="mate">
+                <ol>
+                    <b><li>Schooling at Narayana school, Kurnool</li>
+                    <li>Intermediate at Narayana Junior college, Kurnool</li>
+                    <li>Present B.tech at SRM University</li></b>
+                </ol>
+            </div>
+        </div>
+        <div class="img-container">
+            <img src="pic.webp" height="325px" width="190px">
+        </div>
+    </div>
+    <script>
+        function opentab(tabname){
+            var link=document.getElementsByClassName("descr");
+            var mate=document.getElementsByClassName("mate");
+            for(var i=0;i<mate.length;i++){
+                mate[i].classList.remove("activetab");
+            }
+            for(var i=0;i<link.length;i++){
+                link[i].classList.remove("activelink");
+            }
+            event.currentTarget.classList.add("activelink");
+            document.getElementById(tabname).classList.add("activetab");
+        }
+    </script>
+</body>
+</html>
